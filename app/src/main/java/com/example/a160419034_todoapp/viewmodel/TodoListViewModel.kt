@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.room.Room
 import com.example.a160419034_todoapp.model.Todo
 import com.example.a160419034_todoapp.model.TodoDatabase
+import com.example.a160419034_todoapp.util.buildDb
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -25,8 +26,7 @@ class TodoListViewModel(application: Application) : AndroidViewModel(application
         todoLoadErrorLD.value = false
         loadingLD.value = true
         launch {
-            val db = Room.databaseBuilder(getApplication(), TodoDatabase::class.java,
-                "newtododb").build()
+            val db = buildDb(getApplication())
 
             todoLD.value = db.todoDao().selectAllTodo()
         }

@@ -17,10 +17,10 @@ import kotlinx.android.synthetic.main.fragment_todo_list.*
  * Use the [TodoListFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class TodoListFragment : Fragment() {
+class  TodoListFragment : Fragment() {
     private lateinit var viewModel: TodoListViewModel
     private val todoListAdapter = TodoListAdapter(arrayListOf()) {
-        viewModel.clearTask(it)
+        viewModel.clearTask(it.uuid)
     }
 
     override fun onCreateView(

@@ -9,6 +9,10 @@ plugins {
 android {
     compileSdk 32
 
+    dataBinding {
+        enabled true
+    }
+
     defaultConfig {
         applicationId "com.example.a160419034_todoapp"
         minSdk 21

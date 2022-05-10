@@ -10,6 +10,8 @@ data class Todo(
     var title: String,
     @ColumnInfo(name = "notes")
     var note:String,
+    @ColumnInfo(name = "is_done")
+    var is_done:Int,
     @ColumnInfo(name = "priority")
     var priority: Int
 )

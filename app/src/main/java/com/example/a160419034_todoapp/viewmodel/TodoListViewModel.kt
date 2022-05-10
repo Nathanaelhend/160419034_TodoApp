@@ -32,12 +32,13 @@ class TodoListViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
-    fun clearTask(todo: Todo)
+    fun clearTask(id:Int)
     {
         launch {
             val db = Room.databaseBuilder(getApplication(), TodoDatabase::class.java,
                 "newtododb").build()
-            db.todoDao().deleteTodo(todo)
+            //db.todoDao().deleteTodo(todo)
+            db.todoDao().updateTodo(id)
             todoLD.value = db.todoDao().selectAllTodo()
         }
     }

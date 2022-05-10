@@ -16,6 +16,7 @@ import kotlin.coroutines.CoroutineContext
 class DetailTodoViewModel(application: Application) : AndroidViewModel(application), CoroutineScope {
     private val job = Job()
     val todoLD = MutableLiveData<Todo>()
+
     fun addTodo(todoList: List<Todo>) {
         launch {
             val db = buildDb(getApplication())
@@ -37,6 +38,14 @@ class DetailTodoViewModel(application: Application) : AndroidViewModel(applicati
         launch {
             val db = buildDb(getApplication())
             db.todoDao().update(id, title, notes, priority)
+        }
+    }
+
+
+    fun update(todo: Todo) {
+        launch {
+            val db = buildDb(getApplication())
+            db.todoDao().update(todo)
         }
     }
 }

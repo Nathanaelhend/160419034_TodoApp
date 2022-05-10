@@ -13,6 +13,7 @@ import com.example.a160419034_todoapp.R
 import com.example.a160419034_todoapp.model.Todo
 import com.example.a160419034_todoapp.viewmodel.DetailTodoViewModel
 import kotlinx.android.synthetic.main.fragment_create_todo.*
+import kotlinx.android.synthetic.main.layout_todo_item.*
 
 /**
  * A simple [Fragment] subclass.
@@ -35,7 +36,7 @@ class CreateTodoFragment : Fragment() {
 
         buttonAdd.setOnClickListener {
             var radio = view.findViewById<RadioButton>(radioGroupPriority.checkedRadioButtonId)
-            var todo = Todo(editTitle.text.toString(), editNotes.text.toString(), radio.tag
+            var todo = Todo(editTitle.text.toString(), editNotes.text.toString(), 0, radio.tag
                 .toString().toInt())
             var list = listOf(todo)
             viewModel.addTodo(list)

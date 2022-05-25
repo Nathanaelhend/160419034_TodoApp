@@ -11,9 +11,11 @@ data class Todo(
     @ColumnInfo(name = "notes")
     var note:String,
     @ColumnInfo(name = "is_done")
-    var is_done:Int,
+    var is_done:Int = 0,
     @ColumnInfo(name = "priority")
-    var priority: Int
+    var priority: Int = 3,
+    @ColumnInfo(name = "todo_date")
+    var todo_date: Int = 0
 )
     {
     @PrimaryKey(autoGenerate = true)

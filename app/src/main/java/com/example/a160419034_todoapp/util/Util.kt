@@ -25,3 +25,9 @@ val MIGRATION_1_3 = object : Migration(2,3) {
     //Mengapa pada is_done menggunakan integer? Karena pada database sql, database membaca menggunakan
     // integer untuk menggantikan boolean.
 }
+
+val MIGRATION_3_4 = object : Migration(3,4) {
+    override fun migrate(database: SupportSQLiteDatabase) {
+        database.execSQL("ALTER TABLE todo ADD COLUMN todo_date INTEGER DEFAULT 0 NOT NULL")
+    }
+}
